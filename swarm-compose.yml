@@ -19,6 +19,8 @@ services:
     volumes:
       - data:/data/db
     command: mongod --shardsvr --replSet datars --port 27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -33,6 +35,8 @@ services:
     volumes:
       - data:/data/db
     command: mongod --shardsvr --replSet datars --port 27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -46,6 +50,8 @@ services:
       - mongo
     volumes:
       - data:/data/db
+    expose:
+      - "27017"
     command: mongod --shardsvr --replSet datars --port 27017
     deploy:
       mode: replicated
@@ -61,6 +67,8 @@ services:
     volumes:
       - cfg:/data/configdb
     command: mongod --configsvr --replSet cfgrs --port 27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -75,6 +83,8 @@ services:
     volumes:
       - cfg:/data/configdb
     command: mongod --configsvr --replSet cfgrs --port 27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -89,6 +99,8 @@ services:
     volumes:
       - cfg:/data/configdb
     command: mongod --configsvr --replSet cfgrs --port 27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -102,6 +114,8 @@ services:
       - mongo
       - mongos
     command: mongos --configdb cfgrs/cfg1:27017,cfg2:27017,cfg3:27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -115,6 +129,8 @@ services:
       - mongo
       - mongos
     command: mongos --configdb cfgrs/cfg1:27017,cfg2:27017,cfg3:27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
@@ -128,6 +144,8 @@ services:
       - mongo
       - mongos
     command: mongos --configdb cfgrs/cfg1:27017,cfg2:27017,cfg3:27017
+    expose:
+      - "27017"
     deploy:
       mode: replicated
       replicas: 1
